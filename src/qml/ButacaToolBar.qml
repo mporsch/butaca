@@ -43,6 +43,17 @@ ToolBarLayout {
     }
 
     ToolIcon {
+        iconId: enabled ?
+                    'toolbar-home' :
+                    'toolbar-home-dimmed'
+        onClicked: {
+            if (menu) menu.close()
+            pageStack.pop(welcomeView)
+        }
+    }
+
+
+    ToolIcon {
         iconId: (isFavorite ?
                      'toolbar-favorite-mark' :
                       'toolbar-favorite-unmark') +
